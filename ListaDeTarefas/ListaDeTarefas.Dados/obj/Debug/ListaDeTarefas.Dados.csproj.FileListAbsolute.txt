@@ -1,0 +1,11 @@
+C:\Users\Rodrigo\Desktop\ESTUDOS\ListaDeTarefas\ListaDeTarefas.Dados\bin\Debug\ListaDeTarefas.Dados.exe.config
+C:\Users\Rodrigo\Desktop\ESTUDOS\ListaDeTarefas\ListaDeTarefas.Dados\bin\Debug\ListaDeTarefas.Dados.exe
+C:\Users\Rodrigo\Desktop\ESTUDOS\ListaDeTarefas\ListaDeTarefas.Dados\bin\Debug\ListaDeTarefas.Dados.pdb
+C:\Users\Rodrigo\Desktop\ESTUDOS\ListaDeTarefas\ListaDeTarefas.Dados\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Rodrigo\Desktop\ESTUDOS\ListaDeTarefas\ListaDeTarefas.Dados\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Rodrigo\Desktop\ESTUDOS\ListaDeTarefas\ListaDeTarefas.Dados\obj\Debug\ListaDeTarefas.Dados.csproj.AssemblyReference.cache
+C:\Users\Rodrigo\Desktop\ESTUDOS\ListaDeTarefas\ListaDeTarefas.Dados\obj\Debug\ListaDeTarefas.Dados.csproj.SuggestedBindingRedirects.cache
+C:\Users\Rodrigo\Desktop\ESTUDOS\ListaDeTarefas\ListaDeTarefas.Dados\obj\Debug\ListaDeTarefas.Dados.csproj.CoreCompileInputs.cache
+C:\Users\Rodrigo\Desktop\ESTUDOS\ListaDeTarefas\ListaDeTarefas.Dados\obj\Debug\ListaDeTarefas.Dados.csproj.CopyComplete
+C:\Users\Rodrigo\Desktop\ESTUDOS\ListaDeTarefas\ListaDeTarefas.Dados\obj\Debug\ListaDeTarefas.Dados.exe
+C:\Users\Rodrigo\Desktop\ESTUDOS\ListaDeTarefas\ListaDeTarefas.Dados\obj\Debug\ListaDeTarefas.Dados.pdb

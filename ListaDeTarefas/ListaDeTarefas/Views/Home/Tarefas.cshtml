@@ -1,0 +1,140 @@
+﻿@model List<ListaDeTarefas.Models.TB_Lista_Tarefas>
+
+@{
+    ViewBag.Title = "Tarefas";
+}
+
+<main aria-labelledby="title">
+    <br />
+    <br />    
+    <br />
+
+    @if (Model != null && Model.Count > 0)
+    {
+        <!-- GRID TAREFAS -->
+        <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+            <div>
+                <button style="margin: 5px 5px 5px 5px; background-color: #06bf3e !important " onclick="ChamarModalAdicionar()" id="btnAdicionar" title="Adicionar tarefa" type="button" class="btn btn-secondary">
+                    <i class="fa fa-plus"></i>
+                </button>
+                <div id="modalAdicionar" class="modal">
+                    <!-- Modal Adicionar -->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Adicionar Tarefa</h5>
+                        </div>
+                        <div class="modal-body col-md-12">
+                            <span>Tarefa</span>
+                            <input type="text" id="idTarefa" placeholder="Ex: Fazer x tarefa"/>
+                            <span>Status</span>
+                            <input type="text" id="idStatus" placeholder="Ex: Pendente, concluido"/>
+                            <span>Responsável</span>
+                            <input type="text" id="idResponsavel" placeholder="Ex: Rodrigo S."/>
+                            <span>Prioridade</span>
+                            <input type="text" id="idPrioridade" placeholder="Ex: baixa, media, alta"/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="CriarTarefa()">Salvar</button>
+                            <button type="button" class="closeAdicionar btn btn-secondary" id="btnFecharModalAdicionar" onclick="FecharModalAdicionar()" data-dismiss="modal" aria-label="CloseAdicionar">Fechar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="body">
+                <div class="table-responsive">
+                    <table class="table table-hover dashboard-task-infos">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Tarefa</th>
+                                <th>Status</th>
+                                <th>Responsável</th>
+                                <th>Prioridade</th>
+                                <th>Editar</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td id="idDB" title="ID da tarefa">@item.ID</td>
+                                    <td id="idTarefa" title="Descrição da tarefa">@item.Tarefa</td>
+                                    <td id="idStatus" title="Status da tarefa">@item.Status</td>
+                                    <td id="idResponsavel" title="Responsável pela tarefa">@item.Responsavel</td>
+                                    <td id="idPrioridade" title="Prioridade da tarefa">
+                                        @if (item.Prioridade.ToUpper() == "BAIXA")
+                                        {
+                                            <span class="label bg-green">@item.Prioridade</span>
+                                        }
+                                        @if (item.Prioridade.ToUpper() == "MEDIA")
+                                        {
+                                            <span class="label bg-yellow">@item.Prioridade</span>
+                                        }
+                                        @if (item.Prioridade.ToUpper() == "ALTA")
+                                        {
+                                            <span class="label bg-red">@item.Prioridade</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <button id="btnEditar" title="Editar tarefa" type="button" class="block btn btn-secondary" onclick="ChamarModalEditar()" style="background-color: #f0d91f !important">
+                                            <i class="fa fa-pencil"></i>
+                                        </button>
+                                        <div id="modalEditar" class="modal">
+
+                                            <!-- Modal Editar -->
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Editar Tarefa</h5>
+                                                </div>
+                                                <div class="modal-body col-md-12">
+                                                    <span>Tarefa</span>
+                                                    <input type="text" id="idTarefaEditar" value="@item.Tarefa" />
+                                                    <span>Status</span>
+                                                    <input type="text" id="idStatusEditar" value="@item.Status" />
+                                                    <span>Responsável</span>
+                                                    <input type="text" id="idResponsavelEditar" value="@item.Responsavel" />
+                                                    <span>Prioridade</span>
+                                                    <input type="text" id="idPrioridadeEditar" value="@item.Prioridade" />
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" onclick="EditarTarefa(@item.ID)">Salvar</button>
+                                                    <button type="button" class="closeEditar btn btn-secondary" onclick="FecharModalEditar()" data-dismiss="modal" aria-label="CloseEditar">Fechar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button id="btnExcluir" title="Excluir tarefa" onclick="ExcluirTarefa(@item.ID)" type="button" class="btn btn-secondary" style="background-color: #f72020 !important">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- FIM GRID TAREFAS -->
+    }
+    else
+    {
+        <table>
+            <tr>
+                <th colspan="100">Não foi encontrada nenhuma tarefa na sua lista.</th>
+            </tr>
+        </table>
+    }
+</main>
+
+<!-- Custom Css -->
+<link href="~/Content/style.css" rel="stylesheet" />
+<link href="~/Content/modal.css" rel="stylesheet" />
+<!-- Icon Library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<!-- Arquivo JS da Página -->
+<script type="text/javascript" src="~/Scripts/Tarefas.js"></script>
